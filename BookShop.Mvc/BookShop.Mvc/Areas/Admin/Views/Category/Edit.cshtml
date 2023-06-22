@@ -46,7 +46,7 @@
 
 
 	function backtolist() {
-		window.location.href = "/Category";
+		window.location.href = "https://localhost:7001/Admin/Category";
 	}
 	function handleupdate() {
 		var nameData = $('#nameid').val();
@@ -62,7 +62,7 @@
 		console.log(data);
 		console.log(elements);
 		$.ajax({
-			url: "/Category/Edit",
+			url: "Edit",
 			type: "PUT",
 			headers: { 'RequestVerificationToken': elements },
 			data: JSON.stringify(data),
@@ -72,7 +72,7 @@
 			success: function (result) {
 				//console.log(data)
 				console.log('User saved:', result);
-				window.location.href = "/Category";
+				window.location.href = "https://localhost:7001/Admin/Category";
 			},
 			error: function (errormessage) {
 				alert('error');

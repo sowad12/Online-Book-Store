@@ -52,7 +52,7 @@
 
 
 function backtolist() {
-	window.location.href = "/Category";
+		window.location.href = "https://localhost:7001/Admin/Category";
 }
 function handlesave(){
 	var nameData=$('#nameid').val();
@@ -66,7 +66,7 @@ function handlesave(){
 	//console.log(data);
 	console.log(elements);
 	  $.ajax({  
-		url: "/Category/Create",
+		url: "Create",
 		 type: "POST", 
 		 headers: { 'RequestVerificationToken': elements },
 		data: JSON.stringify(data),  
@@ -76,7 +76,7 @@ function handlesave(){
 		success: function (result) {  
 		console.log(data)
 		   console.log('User saved:', result);
-		   window.location.href = "/Category";
+				window.location.href = "https://localhost:7001/Admin/Category";
 		},  
 		error: function (err) {  
 			console.log(err);

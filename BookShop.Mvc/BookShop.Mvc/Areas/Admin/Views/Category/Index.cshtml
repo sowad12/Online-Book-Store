@@ -56,7 +56,7 @@
 			<h2 class="text-primary">Book List</h2>
 		</div>
 		<div class="col-6 text-end">
-			<a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+			<a asp-area="Admin" asp-controller="Category" asp-action="Create" class="btn btn-primary">
 			   <i class="bi bi-plus-circle"></i> &nbsp; Create New Book info
 			</a>
 		</div>
@@ -89,13 +89,13 @@ $(document).ready(function () {
 
 function deletefun(id) {
 	$.ajax({
-		url: '/Category/Delete?id=' + id,
+		url: 'Category/Delete?id=' + id,
 
 		type: "Delete",
 
 		success: function (result) {
 			alert('delete success');
-			window.location.href = "/Category";
+				window.location.href = "https://localhost:7001/Admin/Category";
 
 		},
 		error: function (errormessage) {
@@ -110,8 +110,9 @@ function booklist() {
 	// var listData=$('#table_data') ;
 	//listData.empty();
 	$.ajax({
-		url: "/Category/CategoryList",
+		url: "Category/CategoryList",
 		type: "GET",
+
 
 		dataType: "json",
 		success: function (result) {
@@ -130,8 +131,9 @@ function booklist() {
 			$('#table_data').html(obj);
 
 		},
-		error: function (errormessage) {
-			alert('error');
+		error: function (errmsg) {
+			alert(errmsg);
+			console.log(errmsg);
 		}
 	});
 
