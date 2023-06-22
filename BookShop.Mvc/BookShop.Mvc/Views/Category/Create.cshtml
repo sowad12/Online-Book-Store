@@ -1,0 +1,87 @@
+﻿@model BookShop.Models.Category
+
+@{
+	ViewData["Title"] = "Create";
+}
+
+<div class="card">
+	<div class="card-title">
+		<h2>Create New Book</h2>
+	</div>
+	<div class="card-body">
+
+		@Html.AntiForgeryToken()
+
+		 <div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Name</label>
+					<input id="nameid"   class="form-control" />
+					@*<span asp-validation-for="Name" class="text-danger"></span>*@
+				</div>
+			</div>
+		</div>
+
+		  <div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Display Order</label>
+					<input id="orderid"   class="form-control" />
+					<span asp-validation-for="DisplayOrder" class="text-danger"></span>
+				</div>
+			</div>
+		</div>
+
+
+
+		 <div class="row">
+			<div class="col-lg-6">
+				<div class="form-group" style="margin-top:10px">
+				   <a onclick="handlesave()" class="btn btn-success">Save</a> <a onclick="backtolist()" class="btn btn-success">Back To List</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script type="text/javascript">
+
+
+function backtolist() {
+	window.location.href = "/Category";
+}
+function handlesave(){
+	var nameData=$('#nameid').val();
+	var orderData=$('#orderid').val();
+	 var data = { 
+	name: nameData,
+	displayOrder: orderData
+  };
+
+   let elements=document.getElementsByName("__RequestVerificationToken")[0].value;
+	//console.log(data);
+	console.log(elements);
+	  $.ajax({  
+		url: "/Category/Create",
+		 type: "POST", 
+		 headers: { 'RequestVerificationToken': elements },
+		data: JSON.stringify(data),  
+
+		contentType: "application/json",  
+		dataType: "json",  
+		success: function (result) {  
+		console.log(data)
+		   console.log('User saved:', result);
+		   window.location.href = "/Category";
+		},  
+		error: function (err) {  
+			console.log(err);
+			alert(err);  
+		}
+	  });
+}
+</script>

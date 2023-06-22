@@ -1,0 +1,85 @@
+﻿@model BookShop.Models.Category
+<div class="card">
+	<div class="card-title">
+		<h2>Update Category</h2>
+	</div>
+	<div class="card-body">
+
+		@Html.AntiForgeryToken()
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<input type="hidden" id="categoryid" value=@Model.Id />
+					<label>Name</label>
+					<input id="nameid" class="form-control" value=@Model.Name />
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Display Order</label>
+					<input id="orderid" class="form-control" value=@Model.DisplayOrder />
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group" style="margin-top:10px">
+					<a onclick="handleupdate()" class="btn btn-success">Update</a> <a onclick="backtolist()" class="btn btn-success">Back To List</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script type="text/javascript">
+
+
+	function backtolist() {
+		window.location.href = "/Category";
+	}
+	function handleupdate() {
+		var nameData = $('#nameid').val();
+		var orderData = $('#orderid').val();
+		var idData = $('#categoryid').val();
+		var data = {
+			id: idData,
+			name: nameData,
+			displayOrder: orderData
+		};
+
+		let elements = document.getElementsByName("__RequestVerificationToken")[0].value;
+		console.log(data);
+		console.log(elements);
+		$.ajax({
+			url: "/Category/Edit",
+			type: "PUT",
+			headers: { 'RequestVerificationToken': elements },
+			data: JSON.stringify(data),
+
+			contentType: "application/json",
+			dataType: "json",
+			success: function (result) {
+				//console.log(data)
+				console.log('User saved:', result);
+				window.location.href = "/Category";
+			},
+			error: function (errormessage) {
+				alert('error');
+			}
+		});
+	}
+</script>
+
+
+

@@ -1,0 +1,140 @@
+﻿@*@model IEnumerable<BookShop.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDateTime)
+            </th>
+       
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DisplayOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDateTime)
+                </td>
+               
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+*@
+
+
+ <div class="container p-3">
+	<div class="row pt-4">
+		<div class="col-6">
+			<h2 class="text-primary">Book List</h2>
+		</div>
+		<div class="col-6 text-end">
+			<a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+			   <i class="bi bi-plus-circle"></i> &nbsp; Create New Book info
+			</a>
+		</div>
+	</div>
+	<br /><br />
+
+<table class="table">
+  <thead>
+	<tr>
+	  <th scope="col">Book Name</th>
+	  <th scope="col">Display Order</th>
+	  <th scope="col">Publish Date</th>
+
+	</tr>
+  </thead>
+  <tbody id="table_data"></tbody>
+</table>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+	// Load initial user data
+	booklist();
+
+
+});
+
+function deletefun(id) {
+	$.ajax({
+		url: '/Category/Delete?id=' + id,
+
+		type: "Delete",
+
+		success: function (result) {
+			alert('delete success');
+			window.location.href = "/Category";
+
+		},
+		error: function (errormessage) {
+			alert('error');
+		}
+	});
+}
+
+
+
+function booklist() {
+	// var listData=$('#table_data') ;
+	//listData.empty();
+	$.ajax({
+		url: "/Category/CategoryList",
+		type: "GET",
+
+		dataType: "json",
+		success: function (result) {
+			console.log(result);
+			var obj = '';
+			$.each(result, function (index, item) {
+
+				obj += '<tr>';
+				obj += '<td>' + item.name+ '</td>';
+				obj += '<td>' + item.displayOrder + '</td>';
+				obj += '<td>' + item.createdDateTime + '</td>';
+				obj += '<td><a href="Category/Edit/' + item.id + '" class="btn btn-primary">Edit</a> <a href="#" class="btn btn-danger" onclick="deletefun(' + item.id + ')">Delete</a></td>';
+				// obj+='<td>'+<a asp-controller="Game" asp-action="Edit" asp-route-id=item.id+'</td>';
+				obj += '<tr>';
+			});
+			$('#table_data').html(obj);
+
+		},
+		error: function (errormessage) {
+			alert('error');
+		}
+	});
+
+}
+
+</script>
