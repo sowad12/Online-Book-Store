@@ -516,3 +516,8 @@ C:\Users\sowad\Desktop\BookShop\BookShop.Mvc\BookShop.Mvc\obj\Debug\net6.0\refin
 C:\Users\sowad\Desktop\BookShop\BookShop.Mvc\BookShop.Mvc\obj\Debug\net6.0\BookShop.Mvc.pdb
 C:\Users\sowad\Desktop\BookShop\BookShop.Mvc\BookShop.Mvc\obj\Debug\net6.0\BookShop.Mvc.genruntimeconfig.cache
 C:\Users\sowad\Desktop\BookShop\BookShop.Mvc\BookShop.Mvc\obj\Debug\net6.0\ref\BookShop.Mvc.dll
+C:\PROJECTS\sowad\BookShop\BookShop.Mvc\BookShop.Mvc\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\PROJECTS\sowad\BookShop\BookShop.Mvc\BookShop.Mvc\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\PROJECTS\sowad\BookShop\BookShop.Mvc\BookShop.Mvc\obj\Debug\net6.0\BookShop.Mvc.MvcApplicationPartsAssemblyInfo.cs
+C:\PROJECTS\sowad\BookShop\BookShop.Mvc\BookShop.Mvc\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\PROJECTS\sowad\BookShop\BookShop.Mvc\BookShop.Mvc\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

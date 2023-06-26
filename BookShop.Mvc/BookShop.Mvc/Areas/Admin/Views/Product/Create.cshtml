@@ -1,0 +1,154 @@
+﻿@model BookShop.Models.Product
+
+@{
+	ViewData["Title"] = "Create";
+}
+
+<div class="card">
+	<div class="card-title">
+		<h2>Create New Book</h2>
+	</div>
+	<div class="card-body">
+
+		@Html.AntiForgeryToken()
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Title</label>
+					<input id="titleid" class="form-control form-control-lg" />
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Description</label>
+					<input id="descriptionid" class="form-control form-control-lg" />
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>ISBN</label>
+					<input id="isbnid" class="form-control form-control-lg" />
+
+				</div>
+			</div>
+		</div>
+	
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Author</label>
+					<input id="authorid" class="form-control form-control-lg" />
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Price</label>
+					<input id="priceid" class="form-control form-control form-control-lg" />
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Image</label>
+					<input id="imageid" type="file" class="form-control form-control form-control-lg" />
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Category</label>
+					<select id="catid" class="form-select  form-select-lg" aria-label="Default select example" asp-items="ViewBag.categoryList">
+						<option selected disabled>select Category</option>
+						
+					</select>
+
+				</div>
+			</div>
+		</div>
+
+
+		
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group" style="margin-top:10px">
+					<a onclick="handlesave()" class="btn btn-success">Save</a> <a onclick="backtolist()" class="btn btn-success">Back To List</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script type="text/javascript">
+
+
+	function backtolist() {
+		window.location.href = "https://localhost:7001/Admin/Product";
+	}
+	function handlesave() {
+		var titleData = $('#titleid').val();
+		var descriptionData = $('#descriptionid').val();
+		var isbnData = $('#isbnid').val();
+		var authorData = $('#authorid').val();
+		var priceData = $('#priceid').val();
+		var categoryidData = $('#catid').val();
+		var imgData = $('#imageid').val();
+
+		var data = {
+			title: titleData,
+			description: descriptionData,
+			isbn: isbnData,
+			author: authorData,
+			price: priceData,
+			categoryid: categoryidData,
+			imageurl: imgData
+
+		};
+		console.log(data);
+
+		let elements = document.getElementsByName("__RequestVerificationToken")[0].value;
+		//console.log(data);
+		console.log(elements);
+		$.ajax({
+			url: "Create",
+			type: "POST",
+			headers: { 'RequestVerificationToken': elements },
+			data: JSON.stringify(data),
+
+			contentType: "application/json",
+			dataType: "json",
+			success: function (result) {
+				console.log(data)
+				console.log('User saved:', result);
+				window.location.href = "https://localhost:7001/Admin/Product";
+			},
+			error: function (err) {
+				console.log(err);
+				alert(err);
+			}
+		});
+	}
+</script>

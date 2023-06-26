@@ -48,45 +48,151 @@ namespace BookShop.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDateTime = new DateTime(2023, 6, 20, 20, 21, 33, 861, DateTimeKind.Local).AddTicks(8459),
+                            CreatedDateTime = new DateTime(2023, 6, 25, 19, 37, 33, 736, DateTimeKind.Local).AddTicks(4866),
                             DisplayOrder = 1,
-                            Name = "helu"
+                            Name = "Action"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDateTime = new DateTime(2023, 6, 20, 20, 21, 33, 861, DateTimeKind.Local).AddTicks(8485),
+                            CreatedDateTime = new DateTime(2023, 6, 25, 19, 37, 33, 736, DateTimeKind.Local).AddTicks(4896),
                             DisplayOrder = 1,
-                            Name = "helu"
+                            Name = "Scifi"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDateTime = new DateTime(2023, 6, 20, 20, 21, 33, 861, DateTimeKind.Local).AddTicks(8487),
+                            CreatedDateTime = new DateTime(2023, 6, 25, 19, 37, 33, 736, DateTimeKind.Local).AddTicks(4898),
                             DisplayOrder = 1,
-                            Name = "helu"
+                            Name = "Drama"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDateTime = new DateTime(2023, 6, 20, 20, 21, 33, 861, DateTimeKind.Local).AddTicks(8489),
+                            CreatedDateTime = new DateTime(2023, 6, 25, 19, 37, 33, 736, DateTimeKind.Local).AddTicks(4900),
                             DisplayOrder = 1,
-                            Name = "helu"
+                            Name = "Comedy"
+                        });
+                });
+
+            modelBuilder.Entity("BookShop.Models.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ISBN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Author = "Billy Spark",
+                            CategoryId = 2,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "SWD9999001",
+                            ImageUrl = "",
+                            Price = 90.0,
+                            Title = "Fortune of Time"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Author = "Nancy Hoover",
+                            CategoryId = 4,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "CAW777777701",
+                            ImageUrl = "",
+                            Price = 30.0,
+                            Title = "Dark Skies"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Author = "Julian Button",
+                            CategoryId = 1,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "RITO5555501",
+                            ImageUrl = "",
+                            Price = 50.0,
+                            Title = "Vanish in the Sunset"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Author = "Abby Muscles",
+                            CategoryId = 3,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "WS3333333301",
+                            ImageUrl = "",
+                            Price = 65.0,
+                            Title = "Cotton Candy"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDateTime = new DateTime(2023, 6, 20, 20, 21, 33, 861, DateTimeKind.Local).AddTicks(8490),
-                            DisplayOrder = 1,
-                            Name = "helu"
+                            Author = "Ron Parker",
+                            CategoryId = 2,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "SOTJ1111111101",
+                            ImageUrl = "",
+                            Price = 27.0,
+                            Title = "Rock in the Ocean"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedDateTime = new DateTime(2023, 6, 20, 20, 21, 33, 861, DateTimeKind.Local).AddTicks(8492),
-                            DisplayOrder = 1,
-                            Name = "helu"
+                            Author = "Laura Phantom",
+                            CategoryId = 1,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "FOT000000001",
+                            ImageUrl = "",
+                            Price = 23.0,
+                            Title = "Leaves and Wonders"
                         });
+                });
+
+            modelBuilder.Entity("BookShop.Models.Product", b =>
+                {
+                    b.HasOne("BookShop.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }

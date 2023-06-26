@@ -9,10 +9,11 @@ namespace BookShop.DataAccess.MediatRPattern.Commands.CategoryCommand
 {
 	public class DeleteCategoryCommand:IRequest<int>
 	{
-		public int Id { get; set; }
+	
         public DeleteCategoryCommand(int id)
         {
                 Id = id;
         }
-    }
+		public int Id { get; set; }
+	}
 }

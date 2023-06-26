@@ -1,0 +1,129 @@
+﻿@model BookShop.Models.Product
+<div class="card">
+	<div class="card-title">
+		<h2>Update Category</h2>
+	</div>
+	<div class="card-body">
+
+		@Html.AntiForgeryToken()
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<input type="hidden" id="productid" value=@Model.Id />
+					<label>Title</label>
+					<input id="titleid" class="form-control form-control-lg" value="@Model.Title" />
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Description</label>
+					<input id="descriptionid" class="form-control form-control-lg" value="@Model.Description" />
+					<@*textarea class="form-control" id="descriptionid" rows="3" value="@Model.Description"></textarea>*@
+				</div>
+			</div>
+		</div>
+		
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>ISBN</label>
+					<input id="isbnid" class="form-control form-control-lg" value="@Model.ISBN" />
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Author</label>
+					<input id="authorid" class="form-control form-control-lg" value="@Model.Author" />
+		
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Price</label>
+					<input id="priceid" class="form-control form-control-lg" value="@Model.Price" />
+					
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group" style="margin-top:10px">
+					<a onclick="handleupdate()" class="btn btn-success">Update</a> <a onclick="backtolist()" class="btn btn-success">Back To List</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script type="text/javascript">
+
+
+	function backtolist() {
+		window.location.href = "https://localhost:7001/Admin/Product";
+	}
+	function handleupdate() {
+		var idData = $('#productid').val();
+		var titleData = $('#titleid').val();
+		var descriptionData = $('#descriptionid').val();
+		var isbnData = $('#isbnid').val();
+		var authorData = $('#authorid').val();
+		var priceData = $('#priceid').val();
+		var data = {
+			id: idData,
+			title: titleData,
+			description: descriptionData,
+			isbn: isbnData,
+			author: authorData,
+			price: priceData,
+
+		};
+		console.log(data);
+
+		let elements = document.getElementsByName("__RequestVerificationToken")[0].value;
+       
+		console.log(elements);
+		$.ajax({
+			url: "Edit",
+			type: "PUT",
+			headers: { 'RequestVerificationToken': elements },
+			data: JSON.stringify(data),
+
+			contentType: "application/json",
+			dataType: "json",
+			success: function (result) {
+				//console.log(data)
+				console.log('User saved:', result);
+				window.location.href = "https://localhost:7001/Admin/Product";
+			},
+			error: function (errormessage) {
+				alert('error');
+			}
+		});
+	}
+</script>
+
+
+

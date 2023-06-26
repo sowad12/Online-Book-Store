@@ -16,9 +16,12 @@ namespace BookShop.DataAccess.Service
         {
 			this.db = db;
 			Category = new CategoryService(db);
+			Product = new ProductService(db);
             
         }
 		public ICategory Category { get; private set; }
+		public IProduct Product { get; private set; }
 
+		
 	}
 }

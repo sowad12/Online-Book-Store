@@ -1,0 +1,18 @@
+﻿using BookShop.DataAccess.Data;
+using BookShop.DataAccess.Service.Interfaces;
+using BookShop.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BookShop.DataAccess.Service
+{
+	public class ProductService : BaseService<Product>, IProduct
+	{
+		public ProductService(ApplicationDbContext context) : base(context)
+		{
+		}
+	}
+}
