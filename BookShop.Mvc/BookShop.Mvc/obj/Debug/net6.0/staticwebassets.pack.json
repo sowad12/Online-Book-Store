@@ -13,6 +13,66 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\066d91f0-897a-4c12-9d2b-d02f3a86d09f.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\066d91f0-897a-4c12-9d2b-d02f3a86d09f.jpg"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\1dc02605-9974-47e4-8b97-7a7bef285b61.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\1dc02605-9974-47e4-8b97-7a7bef285b61.jpg"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\47f267d4-1066-4a64-917e-70590d46aff7.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\47f267d4-1066-4a64-917e-70590d46aff7.jpg"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\6e03d89f-c842-4c33-beac-d975211a775a.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\6e03d89f-c842-4c33-beac-d975211a775a.jpg"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\6e632615-4c2f-4446-b5e4-2a6fe648da00.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\6e632615-4c2f-4446-b5e4-2a6fe648da00.jpg"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\91c8c0d3-1420-47f0-991e-037d5dcc88ba.png",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\91c8c0d3-1420-47f0-991e-037d5dcc88ba.png"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\b90dcf04-87d8-470f-b4cb-e0f27b03083f.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\b90dcf04-87d8-470f-b4cb-e0f27b03083f.jpg"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\ba92fb54-42cc-443a-8566-a423fc007a3e.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\ba92fb54-42cc-443a-8566-a423fc007a3e.jpg"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\c3c68138-5a77-4ee0-996a-9da471145517.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\c3c68138-5a77-4ee0-996a-9da471145517.jpg"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\c4eeb1ba-d0d8-42cb-aa46-1bd085300acc.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\c4eeb1ba-d0d8-42cb-aa46-1bd085300acc.jpg"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\d4d3f209-9548-45fe-9f8a-93bd2cc6787a.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\d4d3f209-9548-45fe-9f8a-93bd2cc6787a.jpg"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\da0f18ba-ddaa-4352-b05c-235da97aa33a.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\da0f18ba-ddaa-4352-b05c-235da97aa33a.jpg"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\e40d1746-156c-4e8a-80ee-4453739e0f78.png",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\e40d1746-156c-4e8a-80ee-4453739e0f78.png"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\ProductImages\\e8ccd55f-92bb-4965-b2e4-5a6934d9f0f8.png",
+      "PackagePath": "staticwebassets\\images\\ProductImages\\e8ccd55f-92bb-4965-b2e4-5a6934d9f0f8.png"
+    },
+    {
+      "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\images\\default-image_450.png",
+      "PackagePath": "staticwebassets\\images\\default-image_450.png"
+    },
+    {
       "Id": "C:\\PROJECTS\\sowad\\BookShop\\BookShop.Mvc\\BookShop.Mvc\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

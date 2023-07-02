@@ -1,154 +1,157 @@
 ﻿@model BookShop.Models.Product
 
 @{
-	ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create";
 }
 
 <div class="card">
-	<div class="card-title">
-		<h2>Create New Book</h2>
-	</div>
-	<div class="card-body">
+    <div class="card-title">
+        <h2>Create New Book</h2>
+    </div>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+          
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input id="titleid" class="form-control form-control-lg" />
+                    </div>
+                </div>
+            </div>
 
-		@Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input id="descriptionid" class="form-control form-control-lg" />
+                    </div>
+                </div>
+            </div>
 
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="form-group">
-					<label>Title</label>
-					<input id="titleid" class="form-control form-control-lg" />
-					
-				</div>
-			</div>
-		</div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>ISBN</label>
+                        <input id="isbnid" class="form-control form-control-lg" />
+                    </div>
+                </div>
+            </div>
 
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="form-group">
-					<label>Description</label>
-					<input id="descriptionid" class="form-control form-control-lg" />
-					
-				</div>
-			</div>
-		</div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Author</label>
+                        <input id="authorid" class="form-control form-control-lg" />
+                    </div>
+                </div>
+            </div>
 
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="form-group">
-					<label>ISBN</label>
-					<input id="isbnid" class="form-control form-control-lg" />
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input id="priceid" class="form-control form-control form-control-lg" />
+                    </div>
+                </div>
+            </div>
 
-				</div>
-			</div>
-		</div>
-	
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="form-group">
-					<label>Author</label>
-					<input id="authorid" class="form-control form-control-lg" />
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input id="fileInput" name="file" type="file" accept="image/*" class="form-control form-control form-control-lg"
+                               onchange="loadImage(event)"
+                        />
+                    </div>
+                </div>
+            </div>
 
-				</div>
-			</div>
-		</div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="catid" class="form-select  form-select-lg" aria-label="Default select example" asp-items="ViewBag.categoryList">
+                            <option selected disabled>select Category</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="form-group">
-					<label>Price</label>
-					<input id="priceid" class="form-control form-control form-control-lg" />
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group" style="margin-top:10px">
+                        <a onclick="handlesave()" class="btn btn-success">Save</a>
+                        <a onclick="backtolist()" class="btn btn-success">Back To List</a>
+                    </div>
+                </div>
+            </div>
 
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="form-group">
-					<label>Image</label>
-					<input id="imageid" type="file" class="form-control form-control form-control-lg" />
-
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="form-group">
-					<label>Category</label>
-					<select id="catid" class="form-select  form-select-lg" aria-label="Default select example" asp-items="ViewBag.categoryList">
-						<option selected disabled>select Category</option>
-						
-					</select>
-
-				</div>
-			</div>
-		</div>
-
-
-		
-
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="form-group" style="margin-top:10px">
-					<a onclick="handlesave()" class="btn btn-success">Save</a> <a onclick="backtolist()" class="btn btn-success">Back To List</a>
-				</div>
-			</div>
-		</div>
-
-	</div>
-
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group" style="margin-top:10px">
+                        <img src="~/images/default-image_450.png" alt="Default Image" id="defaultimg" height="100" width="100"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
-
 <script type="text/javascript">
+    function loadImage(event) {
+        var output = document.getElementById('defaultimg');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function () {
+            URL.revokeObjectURL(output.src);
+        };
+    }
 
+    function backtolist() {
+        window.location.href = "https://localhost:7001/Admin/Product";
+    }
 
-	function backtolist() {
-		window.location.href = "https://localhost:7001/Admin/Product";
-	}
-	function handlesave() {
-		var titleData = $('#titleid').val();
-		var descriptionData = $('#descriptionid').val();
-		var isbnData = $('#isbnid').val();
-		var authorData = $('#authorid').val();
-		var priceData = $('#priceid').val();
-		var categoryidData = $('#catid').val();
-		var imgData = $('#imageid').val();
+    function handlesave() {
+        var titleData = $('#titleid').val();
+        var descriptionData = $('#descriptionid').val();
+        var isbnData = $('#isbnid').val();
+        var authorData = $('#authorid').val();
+        var priceData = $('#priceid').val();
+        var categoryidData = $('#catid').val();
+        var imgData = $('#imageid').val();
 
-		var data = {
-			title: titleData,
-			description: descriptionData,
-			isbn: isbnData,
-			author: authorData,
-			price: priceData,
-			categoryid: categoryidData,
-			imageurl: imgData
+        var file = $('#fileInput').get(0).files[0];
+        console.log(file);
 
-		};
-		console.log(data);
+        var data = new FormData();
+        data.append("title", titleData);
+        data.append("description", descriptionData);
+        data.append("isbn", isbnData);
+        data.append("author", authorData);
+        data.append("price", priceData);
+        data.append("categoryid", categoryidData);
+        data.append("image", file);
+        for(x of data){
+            console.log(x[0]+" "+x[1]);
+        }
+        let elements = document.getElementsByName("__RequestVerificationToken")[0].value;
 
-		let elements = document.getElementsByName("__RequestVerificationToken")[0].value;
-		//console.log(data);
-		console.log(elements);
-		$.ajax({
-			url: "Create",
-			type: "POST",
-			headers: { 'RequestVerificationToken': elements },
-			data: JSON.stringify(data),
-
-			contentType: "application/json",
-			dataType: "json",
-			success: function (result) {
-				console.log(data)
-				console.log('User saved:', result);
-				window.location.href = "https://localhost:7001/Admin/Product";
-			},
-			error: function (err) {
-				console.log(err);
-				alert(err);
-			}
-		});
-	}
+        $.ajax({
+            url: "Create",
+            type: "POST",
+            headers: { 'RequestVerificationToken': elements },
+            data: data,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                console.log('User saved:', result);
+                window.location.href = "https://localhost:7001/Admin/Product";
+            },
+            error: function (err) {
+                console.log(err);
+                alert(err);
+            }
+        });
+    }
 </script>

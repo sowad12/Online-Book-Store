@@ -1,4 +1,6 @@
-﻿using BookShop.Models;
+﻿using BookShop.DataAccess.MediatRPattern.Queries.ProductQuery;
+using BookShop.Models;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,17 +10,23 @@ namespace BookShop.Mvc.Areas.Customer.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private IMediator mediator;
+        public HomeController(ILogger<HomeController> logger, IMediator mediator)
         {
             _logger = logger;
+            this.mediator = mediator;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+            var data = await mediator.Send(new GetAllProductQuery());
+            return View(data);
         }
-
+        public async Task<IActionResult> DetailsAsync(int id)
+        {
+			var productData = await mediator.Send(new GetByIdProductQuery() { Id = id });
+            return View(productData);
+		}
         public IActionResult Privacy()
         {
             return View();

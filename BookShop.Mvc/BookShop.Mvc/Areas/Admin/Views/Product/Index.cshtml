@@ -67,10 +67,11 @@
 		<thead>
 			<tr>
 				<th scope="col">Book Title</th>
-			@*	<th scope="col">Book Description</th>*@
+			
 				<th scope="col">ISBN</th>
 				<th scope="col">Author</th>
 				<th scope="col">Price</th>
+				<th scope="col">Category</th>
 
 			</tr>
 		</thead>
@@ -124,10 +125,12 @@
 
 					obj += '<tr>';
 					obj += '<td>' + item.title + '</td>';
-					//obj += '<td>' + item.description + '</td>';
+				
 					obj += '<td>' + item.isbn + '</td>';
 					obj += '<td>' + item.author + '</td>';
 					obj += '<td>' + item.price + '</td>';
+					obj += '<td>' + item.category.name + '</td>';
+
 					obj += '<td><a href="Product/Edit/' + item.id + '" class="btn btn-primary">Edit</a> <a href="#" class="btn btn-danger" onclick="deletefun(' + item.id + ')">Delete</a></td>';
 					// obj+='<td>'+<a asp-controller="Game" asp-action="Edit" asp-route-id=item.id+'</td>';
 					obj += '<tr>';
